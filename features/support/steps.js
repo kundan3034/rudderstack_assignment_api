@@ -8,7 +8,7 @@ Before(() => {
 });
 
 Given(/^I make a (.*) request to (.*)$/, function (method, endpoint) {
-  spec[method.toLowerCase()](endpoint);
+  spec["post"](endpoint).withHeaders({ 'content-type': 'application/json', 'Accept': 'application/json, text/plain, */*', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Referer': 'https://app.rudderstack.com/', 'Origin': 'https://app.rudderstack.com' }).withBody({ email: "kundan@hackerearth.com", password: "Test@123456789" });
 });
 
 Given(/^I set path param (.*) to (.*)$/, function (key, value) {
@@ -34,7 +34,8 @@ Given(/^I set cookie (.*) to (.*)$/, function (key, value) {
 Given(/I set body to/, function (body) {
   try {
     spec.withJson(JSON.parse(body));
-  } catch(error) {
+    // spec.withHeaders({ 'content-type': 'application/json', 'Accept': 'application/json, text/plain, */*', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Referer': 'https://app.rudderstack.com/', 'Origin': 'https://app.rudderstack.com' })
+  } catch (error) {
     spec.withBody(body);
   }
 });
