@@ -8,6 +8,10 @@ Feature: API login
         #     """
         #     {email: "kundan@hackerearth.com", password: "Test@123456789"}
         #     """
+        # And I set headers to
+        #     """
+        #     { 'content-type': 'application/json', 'Accept': 'application/json, text/plain, */*', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Referer': 'https://app.rudderstack.com/', 'Origin': 'https://app.rudderstack.com' }
+        #     """
         When I receive a response
         Then I expect response should have a status 200
         And I expect response should have a json like

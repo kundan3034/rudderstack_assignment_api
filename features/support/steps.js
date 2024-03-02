@@ -27,6 +27,15 @@ Given(/^I set header (.*) to (.*)$/, function (key, value) {
   spec.withHeaders(key, value);
 });
 
+Given(/^I set headers to/, function (headers) {
+  try {
+    spec.withHeaders(headers);
+    // spec.withHeaders({ 'content-type': 'application/json', 'Accept': 'application/json, text/plain, */*', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Referer': 'https://app.rudderstack.com/', 'Origin': 'https://app.rudderstack.com' })
+  } catch (error) {
+    spec.withHeaders(headers);
+  }
+});
+
 Given(/^I set cookie (.*) to (.*)$/, function (key, value) {
   spec.withCookies(key, value);
 });
