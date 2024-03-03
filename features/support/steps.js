@@ -8,12 +8,12 @@ Before(() => {
   spec = pactum.spec();
 });
 
-Given(/^I make a "(.*)" request to "(.*)" with the following headers and body$/, function (method, endpoint, headersAndBody) {
+Given(/^I make a "(.*)" request to "(.*)" with the following headers$/, function (method, endpoint, testheaders) {
   // const { headers, body } = JSON.parse(headersAndBody);
 
   // spec["post"](endpoint).withHeaders(headers).withBody(body);
 
-  const { headers, body } = JSON.parse(headersAndBody);
+  const { headers } = JSON.parse(testheaders);
   const email = config.EMAIL;
   const password = config.PASSWORD;
 

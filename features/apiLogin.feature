@@ -3,7 +3,7 @@ Feature: API login
     As a user, I should be able to login to the app via api
 
     Scenario: Successful login via api
-        Given I make a "POST" request to "/login" with the following headers and body
+        Given I make a "POST" request to "/login" with the following headers
             """
             {
                 "headers": {
@@ -12,10 +12,6 @@ Feature: API login
                     "Accept-Encoding": "gzip, deflate, br, zstd",
                     "Referer": "https://app.rudderstack.com/",
                     "Origin": "https://app.rudderstack.com"
-                },
-                "body": {
-                    "email": "kundan@hackerearth.com",
-                    "password": "Test@123456789"
                 }
             }
             """
