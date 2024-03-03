@@ -16,10 +16,18 @@ Given(/^I make a "(.*)" request to "(.*)" with the following headers$/, function
   const { headers } = JSON.parse(testheaders);
   const email = config.EMAIL;
   const password = config.PASSWORD;
+  const requestMethod = method.toLowerCase();
+  if (!spec[requestMethod]) {
+    throw new Error('Unsupported HTTP method: ${ method }');
+  }
 
-  spec["post"](endpoint).withHeaders(headers).withBody({ email, password });
-
+  return spec[requestMethod](endpoint).withHeaders(headers).withBody({ email, password });
 });
+
+
+//   spec["post"](endpoint).withHeaders(headers).withBody({ email, password });
+
+// });
 
 Given(/^I set path param (.*) to (.*)$/, function (key, value) {
   spec.withPathParams(key, value);
