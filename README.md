@@ -9,6 +9,11 @@ This repository contains a test automation framework for API testing using BDD (
 ## Install dependencies:
 `npm install`
 
+## Run commands:
+To run tests on prod env: `npm run test:prod`   
+To run tests on dev env: `npm run test:dev` 
+To run tests on qa env: `npm run test:qa`    
+
 
 
 
