@@ -116,7 +116,9 @@ Then(/^I expect response should have a json at (.*)$/, function (path, value) {
 });
 
 Then(/^I expect response should have a json like$/, function (json) {
-  spec.response().should.have.jsonLike(JSON.parse(json));
+  const email = process.env.EMAIL || 'default_email@example.com';
+  const expectedJson = JSON.parse(json.replace('${EMAIL}', email));
+  spec.response().should.have.jsonLike(expectedJson);
 });
 
 Then(/^I expect response should have a json like at (.*)$/, function (path, value) {

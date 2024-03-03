@@ -21,7 +21,7 @@ Feature: API login
             """
             {
                 "status": "success",
-                "email": "kundan@hackerearth.com"
+                "email": "${EMAIL}"
             }
             """
 
