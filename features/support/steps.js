@@ -9,10 +9,6 @@ Before(() => {
 });
 
 Given(/^I make a "(.*)" request to "(.*)" with the following headers$/, function (method, endpoint, testheaders) {
-  // const { headers, body } = JSON.parse(headersAndBody);
-
-  // spec["post"](endpoint).withHeaders(headers).withBody(body);
-
   const { headers } = JSON.parse(testheaders);
   const email = config.EMAIL;
   const password = config.PASSWORD;
@@ -23,11 +19,6 @@ Given(/^I make a "(.*)" request to "(.*)" with the following headers$/, function
 
   return spec[requestMethod](endpoint).withHeaders(headers).withBody({ email, password });
 });
-
-
-//   spec["post"](endpoint).withHeaders(headers).withBody({ email, password });
-
-// });
 
 Given(/^I set path param (.*) to (.*)$/, function (key, value) {
   spec.withPathParams(key, value);
@@ -48,7 +39,6 @@ Given(/^I set header (.*) to (.*)$/, function (key, value) {
 Given(/^I set headers to/, function (headers) {
   try {
     spec.withHeaders(headers);
-    // spec.withHeaders({ 'content-type': 'application/json', 'Accept': 'application/json, text/plain, */*', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Referer': 'https://app.rudderstack.com/', 'Origin': 'https://app.rudderstack.com' })
   } catch (error) {
     spec.withHeaders(headers);
   }
@@ -61,7 +51,6 @@ Given(/^I set cookie (.*) to (.*)$/, function (key, value) {
 Given(/I set body to/, function (body) {
   try {
     spec.withJson(JSON.parse(body));
-    // spec.withHeaders({ 'content-type': 'application/json', 'Accept': 'application/json, text/plain, */*', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Referer': 'https://app.rudderstack.com/', 'Origin': 'https://app.rudderstack.com' })
   } catch (error) {
     spec.withBody(body);
   }
