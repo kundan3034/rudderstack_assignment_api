@@ -7,8 +7,10 @@ Before(() => {
   spec = pactum.spec();
 });
 
-Given(/^I make a (.*) request to (.*)$/, function (method, endpoint) {
-  spec["post"](endpoint).withHeaders({ 'content-type': 'application/json', 'Accept': 'application/json, text/plain, */*', 'Accept-Encoding': 'gzip, deflate, br, zstd', 'Referer': 'https://app.rudderstack.com/', 'Origin': 'https://app.rudderstack.com' }).withBody({ email: "kundan@hackerearth.com", password: "Test@123456789" });
+Given(/^I make a "(.*)" request to "(.*)" with the following headers and body$/, function (method, endpoint, headersAndBody) {
+  const { headers, body } = JSON.parse(headersAndBody);
+
+  spec["post"](endpoint).withHeaders(headers).withBody(body);
 });
 
 Given(/^I set path param (.*) to (.*)$/, function (key, value) {
