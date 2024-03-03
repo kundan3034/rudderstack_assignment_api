@@ -1,5 +1,6 @@
 const pactum = require('pactum');
 const { Given, When, Then, Before, After } = require('@cucumber/cucumber');
+const config = require('../support/defaults');
 
 let spec = pactum.spec();
 
@@ -8,9 +9,16 @@ Before(() => {
 });
 
 Given(/^I make a "(.*)" request to "(.*)" with the following headers and body$/, function (method, endpoint, headersAndBody) {
-  const { headers, body } = JSON.parse(headersAndBody);
+  // const { headers, body } = JSON.parse(headersAndBody);
 
-  spec["post"](endpoint).withHeaders(headers).withBody(body);
+  // spec["post"](endpoint).withHeaders(headers).withBody(body);
+
+  const { headers, body } = JSON.parse(headersAndBody);
+  const email = config.EMAIL;
+  const password = config.PASSWORD;
+
+  spec["post"](endpoint).withHeaders(headers).withBody({ email, password });
+
 });
 
 Given(/^I set path param (.*) to (.*)$/, function (key, value) {

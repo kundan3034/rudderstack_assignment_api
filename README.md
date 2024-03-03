@@ -1,2 +1,16 @@
+# API Test Automation Framework
 
-# rudderstack_assignment_api
+This repository contains a test automation framework for API testing using BDD (Behavior-Driven Development) with Cucumber.js and Pactum.js. The framework allows you to write test scenarios in a human-readable format and execute them against different environments (e.g., prod, dev, qa) using environment-specific configuration files.
+
+## Installation
+
+1. Clone this repository: git clone https://github.com/kundan3034/rudderstack_assignment_api.git
+
+## Install dependencies:
+`npm install`
+
+
+
+
+
+
